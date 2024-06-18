@@ -1,0 +1,635 @@
+/* Default for body and html */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ffffff;
+    height: 100%; 
+    font-weight: lighter;
+}
+
+/* Styling for the background container */
+.background {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("../Images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+/* Styling for the menu wrap container */
+.menu-wrap {
+    position: fixed;
+    top: 1cm;
+    right: 1cm;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+/* Styling for the hamburger menu toggle */
+.menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/* Styling for the hamburger icon bars */
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Styling for individual bars in the hamburger icon */
+.menu-wrap .hamburger>div {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+/* Styling for pseudo elements of the hamburger icon */
+.menu-wrap .hamburger>div:before,
+.menu-wrap .hamburger>div:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+/* Styling for the pseudo elements before and after the hamburger icon */
+.menu-wrap .hamburger>div:before {
+    transform: translateY(-10px);
+}
+
+.menu-wrap .hamburger>div:after {
+    transform: translateY(10px);
+}
+
+.menu-wrap .toggler:checked+.hamburger>div {
+    transform: rotate(45deg);
+}
+
+.menu-wrap .toggler:checked+.hamburger>div:before {
+    transform: rotate(90deg) translate(-8px, 0);
+}
+
+.menu-wrap .toggler:checked+.hamburger>div:after {
+    transform: rotate(90deg) translate(-8px, 0);
+}
+
+.menu-wrap .toggler:checked~.menu {
+    visibility: visible;
+}
+
+/* Styling for the menu container */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(76, 73, 73, 0.8);
+    transition: visibility 0.4s ease;
+}
+
+.menu>div {
+    text-align: center;
+}
+
+/* Styling for the inner content of the menu */
+.menu>div>div {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 50px;
+    background: #353434ee;
+    border-radius: 5px;
+}
+
+/* Styling for the list items in the menu */
+.menu>div>div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu>div>div ul li {
+    margin: 10px 0;
+}
+
+/* Styling for links inside the menu */
+.menu>div>div ul li a {
+    text-decoration: none;
+    color: #d7d7d7;
+    font-size: 24px;
+}
+
+.menu>div>div ul li a:hover {
+    text-decoration: underline;
+    text-decoration-color: #b0b0b0;
+}
+
+/* Styling for external links */
+a[href^="http://"],
+a[href^="https://"] {
+    color: #967bb6;
+    text-decoration: none;
+}
+
+a[href^="http://"]:hover,
+a[href^="https://"]:hover {
+    color: #7f5f9a;
+    text-decoration: underline;
+    text-decoration-color: #b0b0b0;
+}
+
+/* Styling for the main headers */
+.main-header {
+    text-align: center;
+    padding: 50px 0;
+    animation: fadeIn 3s;
+    position: relative;
+    z-index: 0;
+}
+
+.main-header h1 {
+    font-size: 6em;
+    color: #e0e0e0;
+    margin: 0;
+    font-weight: lighter;
+}
+
+.main-header h1.fade-in {
+    animation-delay: 1s;
+}
+
+/* Styling for the about me section */
+.about-me {
+    text-align: left;
+    padding: 20px;
+    color: #ffffffd3;
+}
+
+.about-me .photo-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-me nav a {
+    font-size: 2em;
+    color: #e0e0e0;
+}
+
+.about-me h2 {
+    font-size: 4em;
+    margin-top: 0;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.about-me p {
+    background-color: #e98df167;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    max-width: 1000px;
+    color: #e0e0e0;
+    text-align: justify;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: lighter;
+}
+
+.about-me .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 2s;
+}
+
+.about-me .text {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-me .photo {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-me img {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Styling for interests container */
+.interests-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Styling for each interest item */
+.interests {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.interest-container {
+    perspective: 1000px;
+}
+
+.interest {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    text-align: center;
+    background-color: #e98df167;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+.interest .front,
+.interest .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Styling for flipped state of interest item */
+.interest .back {
+    transform: rotateY(180deg);
+}
+
+.interest-container.flip .interest {
+    transform: rotateY(180deg);
+}
+
+.interest img {
+    max-width: 100px;
+    height: auto;
+    margin: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .interests {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styling for future plans section */
+.future-plans {
+    text-align: center;
+    padding: 20px;
+    color: #b0b0b0;
+    font-weight: lighter;
+}
+
+.future-plans .plan {
+    text-align: left;
+    background-color: #e98df167;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    color: #e0e0e0;
+    font-size: 1.5em;
+}
+
+/* Navigation styling */
+nav {
+    text-align: center;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 2.5s;
+}
+
+nav a {
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for footer */
+footer {
+    text-align: center;
+    color: #e0e0e0;
+    padding: 20px;
+}
+
+/* Styling for collaborate form */
+.collaborate-form {
+    background-color: #e98df167;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 600px;
+    color: #e0e0e0;
+    text-align: center;
+    font-size: 2em;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.collaborate-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.collaborate-form input[type="text"],
+.collaborate-form input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin-top: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #555;
+    color: #000000;
+}
+
+.collaborate-form input[type="radio"] {
+    margin-left: 10px;
+}
+
+.collaborate-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mandatory {
+    color: #e0e0e0;
+    margin-left: 7.5px;
+}
+
+.form-error {
+    color: #e0e0e0;
+    display: none;
+    margin-top: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+/* Styling for contact section */
+.contact {
+    padding: 20px;
+}
+
+.get-in-touch a {
+    color: #888;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.get-in-touch a:hover {
+    color: #e0e0e0;
+}
+
+/* Styling for blockquote */
+blockquote {
+    font-size: 2em;
+    font-style: italic;
+    text-align: center;
+    margin: 20px 0;
+    color: #e0e0e0;
+}
+
+details {
+    margin: 10px 0;
+}
+
+/* Styling for summary element */
+summary {
+    color: #e0e0e0;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    font-size: 1.5em;
+    transition: 0.4s;
+}
+
+summary:hover,
+summary:focus {
+    background-color: #81007746;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Styling for the main headers */
+.main-header {
+    text-align: center;
+    padding: 50px 0;
+    animation: fadeIn 3s;
+    position: relative;
+    z-index: 0;
+}
+
+.main-header h1 {
+    font-size: 6em;
+    color: #e0e0e0;
+    margin: 0;
+    font-weight: lighter;
+}
+
+.main-header h1.fade-in {
+    animation-delay: 1s;
+}
+
+/* Styling for the project showcase section */
+.project-showcase {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling for each project */
+.project {
+    background: #81007746;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: max-height 0.5s ease; 
+    max-height: 120px; 
+}
+
+.project:hover {
+    max-height: 600px; 
+}
+
+.project h2 {
+    cursor: pointer;
+}
+
+.project-details {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project:hover .project-details {
+    opacity: 1;
+}
+
+/* Styling for project buttons */
+.project-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.project-buttons button {
+    margin: 10px 5px; 
+    padding: 10px 20px;
+    background: #e508d346;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-buttons button:hover {
+    background: #555;
+}
+
+/* Styling for summary elements in details */
+summary {
+    color: #e0e0e0;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    font-size: 1.5em;
+    transition: 0.4s;
+}
+
+summary:hover,
+summary:focus {
+    background-color: #81007746;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+/* Styling for the comment section */
+.comment-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comment-form {
+    background-color: rgba(233, 141, 241, 0.4); 
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #e0e0e0;
+    font-size: 1em;
+    text-align: left;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.comment-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #555;
+    color: #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.comment-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #444;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #555;
+}
+/* Keyframe animation for fading in elements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
